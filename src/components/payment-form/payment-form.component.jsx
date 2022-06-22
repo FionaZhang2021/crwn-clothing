@@ -27,14 +27,13 @@ const PaymentForm = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
       },
       body: JSON.stringify({ amount: amount * 100 }),
     }).then((res) => {
       return res.json();
     });
 
-    const clientSecret = "pi_1EUnBEF5IfL0eXz99dkRR60n_secret_sqsp5vQECBqN0qTVoQwpBT0Iy";
+    const clientSecret = response.paymentIntent.client_secret;
 
     const paymentResult = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
