@@ -30,7 +30,7 @@ const PaymentForm = () => {
       },
       body: JSON.stringify({ amount: amount * 100 }),
     }).then((res) => {
-      return res.json();
+      return res.text();
     });
 
     const clientSecret = response.paymentIntent.client_secret;
