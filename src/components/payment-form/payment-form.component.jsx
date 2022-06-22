@@ -27,10 +27,11 @@ const PaymentForm = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
       body: JSON.stringify({ amount: amount * 100 }),
     }).then((res) => {
-      return res.text();
+      return res.json();
     });
 
     const clientSecret = response.paymentIntent.client_secret;
